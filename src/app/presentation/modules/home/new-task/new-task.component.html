@@ -1,0 +1,32 @@
+<div class="card cardStyle">
+    <h3 class="card-header fw-bold">Crear Nueva Tarea</h3>
+    <div class="card-body">
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Nombre de la tarea</mat-label>
+                <input matInput placeholder="Tarea" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Fecha limite</mat-label>
+                <input [matDatepicker]="picker" matInput>
+                <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <div class="card">
+                    <h4 class="card-header fw-semibold">Personas asociadas</h4>
+                    <div class="card-body">
+                        <createPersonComponent></createPersonComponent>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 align-content-center">
+                <fabAddComponent></fabAddComponent>
+            </div>
+        </div>
+    </div>
+</div>
