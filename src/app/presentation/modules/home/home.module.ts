@@ -10,17 +10,24 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {CreatePersonComponent} from "./new-task/create-person/create-person.component";
 import {MatNativeDateModule} from "@angular/material/core";
 import {SkillComponent} from './new-task/create-person/create-skill/skill/skill.component';
+import {ListTaskComponent} from './list-task/list-task.component';
+import {TaskComponent} from './list-task/task/task.component';
+import {NgForOf, NgIf} from "@angular/common";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
-    declarations: [HomeComponent, NewTaskComponent, CreatePersonComponent, CreateSkillComponent, SkillComponent],
+    declarations: [HomeComponent, NewTaskComponent, CreatePersonComponent, CreateSkillComponent, SkillComponent, ListTaskComponent, TaskComponent],
     imports: [
         HomeRoutingModule,
         MatButtonModule,
         FabAddComponent,
         MatInputModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        NgForOf,
+        NgIf,
+        MatCheckboxModule
     ]
 })
 export class HomeModule {

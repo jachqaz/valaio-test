@@ -1,0 +1,23 @@
+<div *ngFor="let task of tasks" xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+    <div class="col-auto">
+      {{ task.id }}. &nbsp;<input [checked]="task.completed" type="checkbox"/>&nbsp;{{ task.name }}
+      - {{ task.expireDate }}
+    </div>
+  </div>
+  <label class="fw-semibold">
+    Personas Asociadas:
+  </label>
+  <div *ngFor="let person of task.persons" class="row">
+    <div class="row">
+      <label>
+        - {{ person.name }} ({{ person.age }})
+      </label>
+    </div>
+    <div class="row">
+      <label>
+        &nbsp;&nbsp;Habilidades: {{ person.skill.toString().replace(",", ", ") }}
+      </label>
+    </div>
+  </div>
+</div>

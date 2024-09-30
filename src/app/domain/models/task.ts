@@ -1,8 +1,11 @@
+import {Person} from "./person";
+
 export class Task {
+  id: string = "";
   name: string = "";
   expireDate: string = "";
-  skill: string[] = [];
-
+  persons: Person[] = [];
+  completed: boolean = false;
   constructor() {
   }
 }

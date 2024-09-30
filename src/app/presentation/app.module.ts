@@ -10,6 +10,7 @@ import {getStorage, provideStorage} from "@angular/fire/storage";
 import {provideRouter} from "@angular/router";
 import {ErrorStateMatcher, MAT_DATE_LOCALE, ShowOnDirtyErrorStateMatcher} from "@angular/material/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MAT_CHECKBOX_DEFAULT_OPTIONS, MatCheckboxDefaultOptions} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   providers: [
     provideRouter(routes),
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: {clickAction: 'noop'} as MatCheckboxDefaultOptions},
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
   ],
   bootstrap: [AppComponent]
