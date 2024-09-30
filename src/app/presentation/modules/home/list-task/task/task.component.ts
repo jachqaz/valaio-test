@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from "../../../../../domain/models/task";
 import {Person} from "../../../../../domain/models/person";
+import {FirebaseService} from "../../../../../data/services/firebase.service";
 
 @Component({
   selector: 'taskComponent',
@@ -9,7 +10,9 @@ import {Person} from "../../../../../domain/models/person";
 })
 export class TaskComponent implements OnInit {
   tasks: Task[] = [];
-  protected readonly String = String;
+
+  constructor(private firebaseService: FirebaseService) {
+  }
 
   ngOnInit(): void {
     let task = new Task();
@@ -19,12 +22,12 @@ export class TaskComponent implements OnInit {
     let person = new Person();
     person.name = "Juan Perez";
     person.age = "25";
-    person.skill.push("JavaScript", "Angular");
+    person.skills.push("JavaScript", "Angular");
     task.persons.push(person);
     person = new Person();
     person.name = "Maria Lopez";
     person.age = "30";
-    person.skill.push("Typescript", "CSS");
+    person.skills.push("Typescript", "CSS");
     task.persons.push(person);
     this.tasks.push(task);
     task = new Task();
@@ -35,13 +38,37 @@ export class TaskComponent implements OnInit {
     person = new Person();
     person.name = "Carlos Gomez";
     person.age = "40";
-    person.skill.push("Html", "SCSS");
+    person.skills.push("Html", "SCSS");
     task.persons.push(person);
     this.tasks.push(task);
     console.log(this.tasks);
-  }
-
-  taskCompleted(completed: boolean) {
-    return completed ? 'X' : '';
+    // this.firebaseService.getDocs(PathsFirebase.tasks).then(result => {
+    //   result.docs.map(task => {
+    //     let taskTemporal: Task = <Task>task.data();
+    //     console.log(taskTemporal);
+    //     this.firebaseService.getDocs(`${PathsFirebase.tasks}/${task.id}/${PathsFirebase.persons}`).then(result => {
+    //       result.docs.map(person => {
+    //         let personTemporal: Person = <Person>person.data();
+    //         console.log(personTemporal)
+    //         // this.tasks.push(<Task>task.data());
+    //         this.firebaseService.getDocs(`${PathsFirebase.tasks}/${person.id}/${PathsFirebase.skills}`).then(result => {
+    //           result.docs.map(skill => {
+    //             let skillTemporal = person.data();
+    //             console.log(skillTemporal);
+    //             // personTemporal.skills.push(skillTemporal.toString());
+    //           })
+    //         }, error => {
+    //           alert(error);
+    //         });
+    //         // taskTemporal.persons.push(personTemporal);
+    //       })
+    //     }, error => {
+    //       alert(error);
+    //     });
+    //     // this.tasks.push(taskTemporal);
+    //   });
+    // }, error => {
+    //   alert(error);
+    // });
   }
 }

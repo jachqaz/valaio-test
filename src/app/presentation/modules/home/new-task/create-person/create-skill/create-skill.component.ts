@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FirebaseService} from "../../../../../../data/services/firebase.service";
 
 @Component({
   selector: 'createSkillsComponent',
@@ -6,5 +7,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./create-skill.component.css'],
 })
 export class CreateSkillComponent {
+  @Input() skill!: string;
 
+  constructor(private firebaseService: FirebaseService) {
+
+  }
 }
