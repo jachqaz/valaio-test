@@ -14,6 +14,7 @@ import {ListTaskComponent} from './list-task/list-task.component';
 import {TaskComponent} from './list-task/task/task.component';
 import {NgForOf, NgIf} from "@angular/common";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
         MatNativeDateModule,
         NgForOf,
         NgIf,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatDialogModule, MatButtonModule
     ]
 })
 export class HomeModule {
